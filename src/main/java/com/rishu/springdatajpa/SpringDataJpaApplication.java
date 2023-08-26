@@ -10,4 +10,13 @@ public class SpringDataJpaApplication {
 		SpringApplication.run(SpringDataJpaApplication.class, args);
 	}
 
+	// DTOs ( Data Transfer Objects ) - A class whose purpose is to
+	// transfer data, usually from server to client and vice versa.
+
+	// entities - A class whose purpose is to store/retrieve
+	// data from to/from a database.
+
+	// POJOs ( Plain Old Java Objects ) - A class that doesn't extend any framework
+	// code nor has any sort of restrictions baked into it.
+
 }
