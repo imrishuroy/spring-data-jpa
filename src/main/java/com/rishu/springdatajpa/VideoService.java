@@ -23,8 +23,26 @@ public class VideoService {
         return repository.findAll();
     }
 
+    public VideoEntity getVideo(Long id) {
+        return repository.findById(id).orElseThrow();
+    }
+
     public VideoEntity create(NewVideo newVideo) {
         return repository.saveAndFlush(new VideoEntity(newVideo.name(), newVideo.description()));
+    }
+
+    public VideoEntity delete(Long id) {
+        VideoEntity video = repository.findById(id).orElseThrow();
+        repository.deleteById(id);
+        return video;
+    }
+
+    public VideoEntity update(Long id, NewVideo newVideo) {
+        VideoEntity video = repository.findById(id).orElseThrow();
+        video.setName(newVideo.name());
+        video.setDescription(newVideo.description());
+        repository.saveAndFlush(video);
+        return video;
     }
 
     public List<VideoEntity> search(VideoSearch videoSearch) {
